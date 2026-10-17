@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="theme-color" content="#201a16">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>منيو مطعم الياسمينا</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#201a16;font-family:Arial,sans-serif;-webkit-text-size-adjust:100%;overscroll-behavior-x:contain}
+body{display:flex;justify-content:center;align-items:flex-start;width:100%;overflow-x:auto}
+.viewer{position:relative;width:100%;max-width:1333px;line-height:0;margin:0 auto}
+.page{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;transform-origin:top center;transition:transform .18s ease;cursor:zoom-in}
+.viewer.zoomed .page{width:100%;max-width:none;transform:scale(1.8);cursor:zoom-out}
+.viewer.zoomed{overflow:visible}
+.viewer.zoomed .hotspot{display:none}
+.nav a.secondary{background:#fff;color:#24170b}
+.nav{right:8px;left:8px;justify-content:center;flex-wrap:wrap}
+.nav a{font-size:13px;padding:11px 12px;min-width:66px}
+.hotspot{position:absolute;display:block;z-index:2;background:transparent;border:0;outline:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.hotspot:focus-visible{outline:3px solid #ffca16;background:#ffffff18;border-radius:4px}
+.nav{position:fixed;z-index:5;bottom:calc(10px + env(safe-area-inset-bottom));left:10px;display:flex;gap:8px;direction:ltr;line-height:1}
+.nav a{font:600 14px Arial,sans-serif;color:#24170b;background:#ffca16;text-decoration:none;padding:12px 15px;min-height:44px;display:flex;align-items:center;justify-content:center;border-radius:8px;box-shadow:0 2px 10px #0005;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.nav a:hover{background:#ffe078}
+@media(max-width:600px){body{display:block;overflow-x:auto}.viewer{width:180vw;max-width:none;margin:0;overflow:visible}.page{width:180vw;max-width:none;height:auto;object-fit:contain;cursor:zoom-in}.nav{right:6px;left:6px;bottom:calc(6px + env(safe-area-inset-bottom));gap:5px}.nav a{font-size:12px;padding:10px 11px;min-height:44px;min-width:58px;border-radius:8px}.viewer.zoomed{width:180vw;overflow:visible}.viewer.zoomed .page{width:180vw;max-width:none;transform:none}}
+@media(min-width:1334px){.viewer{width:1333px}}
+</style>
+</head>
+<body>
+<div class="viewer" id="viewer">
+  <img id="pageImage" class="page" src="assets/page-1.jpg" alt="منيو مطعم الياسمينا">
+</div>
+<nav class="nav" aria-label="التنقل بين صفحات المنيو">
+  <a id="prev" class="secondary" href="index.html?page=1">السابق</a>
+  <a href="index.html?page=1">الرئيسية</a>
+  <a href="index.html?page=2">الأقسام</a>
+  <a id="zoom" href="#zoom" class="secondary" role="button">تكبير القراءة</a>
+  <a id="next" href="index.html?page=2">التالي</a>
+</nav>
+<script>
+const pages = ["page-1.jpg", "page-2.jpg", "page-3.jpg", "page-4.jpg", "page-5.jpg", "page-6.jpg", "page-7.jpg"];
+const hotspots = {"1": [{"x": 31, "y": 57, "w": 36, "h": 20, "href": "index.html?page=2", "label": "Open menu"}], "2": [{"x": 57, "y": 5, "w": 38, "h": 14, "href": "index.html?page=3", "label": "شاورما الفراخ"}, {"x": 57, "y": 19, "w": 39, "h": 14, "href": "index.html?page=4", "label": "مشويات الفراخ"}, {"x": 56, "y": 33, "w": 40, "h": 14, "href": "index.html?page=5", "label": "مشويات اللحم"}, {"x": 65, "y": 47, "w": 31, "h": 14, "href": "index.html?page=6", "label": "فراخ كريسبي"}, {"x": 68, "y": 62, "w": 28, "h": 14, "href": "index.html?page=6", "label": "المعجنات"}, {"x": 68, "y": 77, "w": 28, "h": 14, "href": "index.html?page=6", "label": "الصفائح"}, {"x": 5, "y": 5, "w": 37, "h": 14, "href": "index.html?page=7", "label": "الطواجن"}, {"x": 5, "y": 20, "w": 37, "h": 14, "href": "index.html?page=2", "label": "السندوتشات"}, {"x": 5, "y": 39, "w": 37, "h": 14, "href": "index.html?page=2", "label": "المقبلات"}, {"x": 5, "y": 55, "w": 37, "h": 14, "href": "index.html?page=2", "label": "المشروبات"}], "3": [], "4": [], "5": [], "6": [], "7": []};
+const params = new URLSearchParams(location.search);
+let page = Number(params.get('page') || 1);
+if (!Number.isInteger(page) || page < 1 || page > pages.length) page = 1;
+const viewer = document.getElementById('viewer');
+const img = document.getElementById('pageImage');
+img.src = 'assets/' + pages[page-1];
+document.documentElement.dataset.page = String(page);
+img.alt = 'منيو مطعم الياسمينا - الصفحة ' + page;
+document.getElementById('prev').href = 'index.html?page=' + Math.max(1,page-1);
+document.getElementById('next').href = 'index.html?page=' + Math.min(pages.length,page+1);
+document.getElementById('prev').style.opacity = page === 1 ? '.45' : '1';
+document.getElementById('next').style.opacity = page === pages.length ? '.45' : '1';
+document.getElementById('zoom').addEventListener('click', function(e){ e.preventDefault(); viewer.classList.toggle('zoomed'); this.textContent = viewer.classList.contains('zoomed') ? 'تصغير' : 'تكبير القراءة'; if(viewer.classList.contains('zoomed')) viewer.scrollIntoView({block:'start',behavior:'smooth'}); });
+img.addEventListener('click', function(){ if(window.matchMedia('(max-width: 600px)').matches){ viewer.classList.toggle('zoomed'); const z=document.getElementById('zoom'); z.textContent=viewer.classList.contains('zoomed')?'تصغير':'تكبير القراءة'; }});
+for (const spot of (hotspots[page] || [])) {
+  const a = document.createElement('a');
+  a.className = 'hotspot';
+  a.href = spot.href;
+  a.setAttribute('aria-label', spot.label);
+  a.title = spot.label;
+  a.style.left = spot.x + '%';
+  a.style.top = spot.y + '%';
+  a.style.width = spot.w + '%';
+  a.style.height = spot.h + '%';
+  viewer.appendChild(a);
+}
+</script>
+</body>
+</html>
