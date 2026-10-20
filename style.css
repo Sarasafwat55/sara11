@@ -1,0 +1,150 @@
+/* Brand fonts — bundled (SIL Open Font License) */
+@font-face{font-family:'Space Grotesk';src:url(SpaceGrotesk.woff) format('woff');font-weight:300 700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url(Montserrat.woff) format('woff');font-weight:100 900;font-display:swap}
+
+/* ===== ONOME brand tokens (Brand Book v1.0) ===== */
+:root{
+  --charcoal:#171717;
+  --offwhite:#F5F3EF;
+  --orange:#FF5A36;
+  --blue:#245BFF;
+  --lime:#B8F34A;
+  --card:#202020;
+  --line:#2E2E2E;
+  --muted:#A9A59D;
+  --wa:#25D366;
+  --font-head:'Space Grotesk',sans-serif;
+  --font-body:'Montserrat',sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0B0B0B}
+body{display:flex;justify-content:center;font-family:var(--font-body);color:var(--offwhite)}
+a{color:inherit}
+
+/* Fixed 400 x 844 frame — black on every page */
+.frame{
+  width:400px;height:844px;overflow-y:auto;overflow-x:hidden;
+  background:var(--charcoal);display:flex;flex-direction:column;position:relative;
+}
+.frame::-webkit-scrollbar{width:0}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px 0}
+.logo img{display:block;width:124px;height:auto}
+.back{
+  font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;border:1px solid #3a3a3a;border-radius:999px;padding:7px 12px;
+}
+.back:hover{border-color:var(--orange);color:var(--orange)}
+
+.label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+
+/* ---------- Home ---------- */
+.hero{padding:16px 24px 0}
+.hero h1{font-family:var(--font-head);font-weight:700;font-size:38px;line-height:1.03;letter-spacing:-.01em;margin:10px 0 10px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{color:var(--muted);font-size:12.5px;line-height:1.65}
+.tagline{font-size:10.5px;letter-spacing:.3em;margin-top:12px}
+
+.hero-art{display:block;width:100%;height:auto;margin:10px 0 6px}
+
+.nav-cards{display:flex;flex-direction:column;padding:0 24px}
+.nav-card{
+  display:grid;grid-template-columns:48px 1fr 24px;align-items:center;
+  padding:13px 0;border-top:1px solid var(--line);text-decoration:none;
+}
+.nav-card:last-child{border-bottom:1px solid var(--line)}
+.nav-card .num{font-family:var(--font-head);font-weight:700;font-size:24px;color:var(--orange)}
+.nav-card h2{font-family:var(--font-head);font-weight:700;font-size:20px}
+.nav-card small{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+.nav-card .arrow{color:var(--blue);font-size:20px;transition:transform .2s}
+.nav-card:hover .arrow{transform:translateX(4px);color:var(--orange)}
+
+/* ---------- Inner pages ---------- */
+main{flex:1;padding:22px 24px 24px}
+.page-title{font-family:var(--font-head);font-weight:700;font-size:36px;line-height:1.05;margin:8px 0 12px}
+.lead{color:var(--muted);font-size:13px;line-height:1.75;margin-bottom:22px}
+
+.panel{background:var(--blue);border-radius:12px;padding:20px;margin-bottom:22px;position:relative;overflow:hidden}
+.panel .label{color:#fff;opacity:.8}
+.panel h3{font-family:var(--font-head);font-weight:700;font-size:21px;line-height:1.2;margin:8px 0}
+.panel p{font-size:12.5px;line-height:1.65;color:#E4EAFF}
+.panel::after{content:"";position:absolute;right:-18px;bottom:-18px;width:64px;height:64px;
+  background:linear-gradient(135deg,transparent 50%,var(--orange) 50%)}
+
+.block{border-top:1.5px solid var(--offwhite);padding-top:10px;margin-bottom:20px}
+.block p{font-size:13px;line-height:1.65;margin-top:6px}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 22px}
+.chip{background:var(--offwhite);color:var(--charcoal);font-size:11px;font-weight:500;border-radius:999px;padding:6px 12px}
+
+.checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.checks li{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:11px 12px;font-size:12px;font-weight:500}
+.checks li::before{content:"";display:inline-block;width:7px;height:7px;background:var(--orange);margin-right:8px;vertical-align:1px}
+
+.list{display:flex;flex-direction:column;gap:9px}
+.item{display:grid;grid-template-columns:40px 1fr;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px}
+.item .num{font-family:var(--font-head);font-weight:700;font-size:19px;color:var(--orange)}
+.item h3{font-family:var(--font-head);font-weight:700;font-size:16px;margin-bottom:3px}
+.item p{color:var(--muted);font-size:12px;line-height:1.55}
+.item.featured{background:var(--lime);border-color:var(--lime);color:var(--charcoal)}
+.item.featured .num{color:var(--charcoal)}
+.item.featured p{color:#2b3a10}
+.item.featured .tag{display:inline-block;font-size:9px;font-weight:600;letter-spacing:.12em;background:var(--charcoal);color:var(--lime);border-radius:999px;padding:3px 8px;margin-bottom:6px}
+
+.descriptor{
+  border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:20px;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;font-size:10.5px;font-weight:500;letter-spacing:.18em;
+}
+.descriptor span:first-child{color:var(--lime)}
+
+/* Partners logo wall — swipe sideways */
+.logo-wall{margin:0 -24px;background:#fff;padding:14px 0;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.logo-wall::-webkit-scrollbar{display:none}
+.logo-wall img{display:block;height:340px;width:auto;max-width:none;padding:0 24px}
+.hint{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin:10px 0 0}
+.hint a{color:var(--orange);text-decoration:none;font-weight:600}
+
+.copy{color:#6f6c66;font-size:10.5px;letter-spacing:.06em;text-align:center;padding:14px 0 6px}
+
+/* ---------- Action bar: on every screen ---------- */
+.actions{
+  position:sticky;bottom:0;z-index:5;display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  padding:12px 16px 14px;background:rgba(23,23,23,.94);backdrop-filter:blur(8px);
+  border-top:1px solid var(--line);margin-top:auto;
+}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;height:48px;border-radius:999px;
+  font-family:var(--font-head);font-weight:700;font-size:15px;text-decoration:none;
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-call{background:var(--orange);color:#fff}
+.btn-wa{background:var(--wa);color:#0B2A15}
+.btn:active{transform:scale(.98)}
+
+/* ---------- Our Work Samples ---------- */
+.work-btn{
+  position:relative;display:block;margin-top:18px;padding:22px 20px 20px;border-radius:16px;
+  background:var(--orange);color:#fff;text-decoration:none;overflow:hidden;
+  box-shadow:0 10px 28px rgba(255,90,54,.28);
+}
+.work-btn::before{content:"";position:absolute;right:-44px;top:-52px;width:104px;height:104px;border:14px solid var(--blue);border-radius:50%}
+.work-btn::after{content:"";position:absolute;left:0;bottom:0;width:0;height:0;border-left:44px solid var(--charcoal);border-top:44px solid transparent}
+.work-kicker{display:block;position:relative;font-size:10px;font-weight:600;letter-spacing:.18em;opacity:.85}
+.work-title{display:block;font-family:var(--font-head);font-weight:700;font-size:27px;line-height:1.1;margin:6px 0 6px;position:relative}
+.work-sub{display:block;font-size:12px;opacity:.92;padding:0 56px 0 30px;position:relative}
+.work-go{position:absolute;right:18px;bottom:16px;width:40px;height:40px;border-radius:50%;background:var(--charcoal);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform .2s}
+.work-btn:hover .work-go{transform:translateX(3px)}
+
+.work-overlay{
+  display:none;position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:20;
+  width:400px;height:844px;max-height:100vh;overflow-y:auto;background:var(--charcoal);
+}
+.work-overlay:target{display:block}
+.work-overlay img{display:block;width:100%;height:auto}
+.work-bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;background:rgba(23,23,23,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.work-close{width:36px;height:36px;border-radius:50%;background:var(--orange);color:#fff;text-decoration:none;
+  display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
