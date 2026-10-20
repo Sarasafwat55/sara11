@@ -1,0 +1,130 @@
+/* Brand fonts — bundled (SIL Open Font License, see /fonts) */
+@font-face{font-family:'Space Grotesk';src:url(fonts/SpaceGrotesk.woff) format('woff');font-weight:300 700;font-display:swap}
+@font-face{font-family:'Montserrat';src:url(fonts/Montserrat.woff) format('woff');font-weight:100 900;font-display:swap}
+
+/* ===== ONOME brand tokens (Brand Book v1.0) ===== */
+:root{
+  --charcoal:#171717;   /* primary background / type */
+  --offwhite:#F5F3EF;   /* primary light / reverse logo */
+  --orange:#FF5A36;     /* energy / action / accent */
+  --blue:#245BFF;       /* digital / contrast accent */
+  --lime:#B8F34A;       /* campaign pop — use with restraint */
+  --green:#075B4B;      /* secondary support */
+  --grey:#6B6B6B;
+  --line:#E2DFD8;
+  --font-head:'Space Grotesk',sans-serif;
+  --font-body:'Montserrat',sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0B0B0B}
+body{display:flex;justify-content:center;font-family:var(--font-body);color:var(--charcoal)}
+a{color:inherit}
+
+/* Fixed 400 x 844 frame */
+.frame{
+  width:400px;height:844px;overflow-y:auto;overflow-x:hidden;
+  background:var(--offwhite);display:flex;flex-direction:column;
+}
+.frame::-webkit-scrollbar{width:0}
+.frame.dark{background:var(--charcoal);color:var(--offwhite)}
+
+/* Header */
+header{
+  background:var(--charcoal);display:flex;align-items:center;justify-content:space-between;
+  padding:22px 24px;
+}
+.logo img{display:block;width:130px;height:auto}
+.back{
+  font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--offwhite);text-decoration:none;border:1px solid #3a3a3a;border-radius:999px;padding:7px 12px;
+}
+.back:hover{border-color:var(--orange);color:var(--orange)}
+
+/* Labels */
+.label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+
+/* ---------- Home ---------- */
+.hero{padding:34px 24px 0}
+.hero h1{
+  font-family:var(--font-head);font-weight:700;font-size:44px;line-height:1.02;
+  letter-spacing:-.01em;margin:14px 0 14px;
+}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{color:#BDBAB4;font-size:13px;line-height:1.7}
+.tagline{font-size:11px;letter-spacing:.3em;color:var(--offwhite);margin-top:18px}
+
+.ribbon{display:block;width:100%;height:120px;object-fit:cover;margin:26px 0 24px}
+
+.nav-cards{display:flex;flex-direction:column;padding:0 24px}
+.nav-card{
+  display:grid;grid-template-columns:52px 1fr 24px;align-items:center;
+  padding:18px 0;border-top:1px solid #2E2E2E;text-decoration:none;color:var(--offwhite);
+}
+.nav-card:last-child{border-bottom:1px solid #2E2E2E}
+.nav-card .num{font-family:var(--font-head);font-weight:700;font-size:26px;color:var(--orange)}
+.nav-card h2{font-family:var(--font-head);font-weight:700;font-size:21px}
+.nav-card small{display:block;color:#9A978F;font-size:11.5px;margin-top:3px}
+.nav-card .arrow{color:var(--blue);font-size:20px;transition:transform .2s}
+.nav-card:hover .arrow{transform:translateX(4px);color:var(--orange)}
+
+/* ---------- Inner pages ---------- */
+main{flex:1;padding:30px 24px 26px}
+.page-title{font-family:var(--font-head);font-weight:700;font-size:38px;line-height:1.05;margin:8px 0 14px}
+.lead{color:#4A4A4A;font-size:13.5px;line-height:1.75;margin-bottom:24px}
+
+.panel{
+  background:var(--charcoal);color:var(--offwhite);border-radius:12px;
+  padding:20px;margin-bottom:22px;position:relative;overflow:hidden;
+}
+.panel h3{font-family:var(--font-head);font-weight:700;font-size:21px;line-height:1.2;margin:8px 0}
+.panel p{font-size:12.5px;line-height:1.65;color:#C9C6BF}
+.panel::after{content:"";position:absolute;right:-18px;bottom:-18px;width:64px;height:64px;
+  background:linear-gradient(135deg,transparent 50%,var(--orange) 50%)}
+
+.block{border-top:1.5px solid var(--charcoal);padding-top:10px;margin-bottom:20px}
+.block p{font-size:13px;line-height:1.65;margin-top:6px}
+
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 22px}
+.chip{background:var(--charcoal);color:var(--offwhite);font-size:11px;font-weight:500;border-radius:999px;padding:6px 12px}
+
+.checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.checks li{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 12px;font-size:12px;font-weight:500}
+.checks li::before{content:"";display:inline-block;width:7px;height:7px;background:var(--orange);margin-right:8px;vertical-align:1px}
+
+.list{display:flex;flex-direction:column;gap:9px}
+.item{
+  display:grid;grid-template-columns:40px 1fr;gap:4px;
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 16px;
+}
+.item .num{font-family:var(--font-head);font-weight:700;font-size:19px;color:var(--orange)}
+.item h3{font-family:var(--font-head);font-weight:700;font-size:16px;margin-bottom:3px}
+.item p{color:var(--grey);font-size:12px;line-height:1.55}
+
+.descriptor{
+  background:var(--blue);color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:22px;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;
+  font-size:11px;font-weight:500;letter-spacing:.18em;
+}
+
+.partners{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.partner{
+  background:#fff;border:1px solid var(--line);border-radius:12px;height:80px;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;
+  font-family:var(--font-head);font-weight:700;font-size:13.5px;line-height:1.25;
+}
+.partner:nth-child(4n+1){border-left:4px solid var(--orange)}
+.partner:nth-child(4n+2){border-left:4px solid var(--blue)}
+
+.cta{
+  display:block;margin-top:24px;background:var(--orange);color:#fff;text-align:center;text-decoration:none;
+  font-family:var(--font-head);font-weight:700;font-size:15px;border-radius:999px;padding:15px;
+}
+
+/* Footer */
+footer{
+  background:var(--charcoal);color:#9A978F;font-size:11px;letter-spacing:.06em;
+  padding:16px 24px;display:flex;justify-content:space-between;align-items:center;
+}
+.frame.dark footer{border-top:1px solid #2E2E2E}
+footer a{color:var(--offwhite);text-decoration:none;font-weight:600}
